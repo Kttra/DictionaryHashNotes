@@ -75,6 +75,51 @@ myDict.Remove(3); //Doesn't have to be used in an if statement
 # Hashtable Notes
 A hash table (hash map) is a data structure that implements a set abstract data type, a structure that can map keys to values. Hashtable is a loosely typed (non-generic) collection, this means it stores key-value pairs of any data types. The hashtable is in the System.Collections namespace.
 
+**Creating a Hashtable**
+-------------
 ```cs
-Hashtable table = new Hashtable();
+//Key - Value
+//integer  - string for example
+Hashtable myTable = new Hashtable();
+
+//Add elements to our hashtable
+myTable.Add(1, "one");
+myTable.Add(2, "two");
+myTable.Add("three", 3);
+```
+
+**Accessing Elements in a Hashtable**
+-----
+```cs
+foreach(DictionaryEntry element in myTable)
+{
+    Console.WriteLine(element.Value); //Can use element.Key if you want the key instead
+}
+foreach(var element in myTable.Values) //Can use "myTable.Keys" if you want to access the keys
+{
+    Console.WriteLine(element);
+}
+/*  Both will Output:
+    3
+    two
+    one
+*/
+```
+
+**Other Hashtable Methods**
+-----
+Some other important methods for hashtables include the ContainsKey and Remove methods. We can also modify existing key values.
+```cs
+//Removing element 0 from hashtable
+//First check if the key exists
+if (myTable.ContainsKey(1))
+{
+    myTable.Remove(1); //Remove key 1
+}
+
+//Modifying a key
+if (myTable.ContainsKey(1))
+{
+    myTable[1] = "newUser";
+}
 ```
